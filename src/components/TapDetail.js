@@ -22,7 +22,8 @@ function TapDetail(props) {
 TapDetail.propTypes = {
   tap: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func
+  onClickingEdit: PropTypes.func,
+  onSoldPint: PropTypes.func
 };
 
 export default TapDetail;
