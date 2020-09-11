@@ -8,6 +8,10 @@
 
 An app which allows the user to create, edit, delete and keep track of of their inventory. 
 
+## Diagram
+
+![Tap Room Diagram!](./src/images/TapRoom.png)
+
 ## User Stories
 
 * As a user, I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and alcoholContent (or perhaps something like flavor for a kombucha store).
