@@ -1,4 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tap Room
+
+#### Latest version date 9/11/2020
+
+#### By Spencer Moody
+
+## Description
+
+An app which allows the user to create, edit, delete and keep track of of their inventory. 
+
+## User Stories
+
+* As a user, I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and alcoholContent (or perhaps something like flavor for a kombucha store).
+
+* As a user, I want to submit a form to add a new keg to a list.
+
+* As a user, I want to be able to click on a keg to see its detail page.
+
+* As a user, I want to see how many pints are left in a keg. Hint: A full keg has roughly 124 pints.
+
+* As a user, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0.
 
 ## Available Scripts
 
@@ -37,32 +57,30 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Bugs
+
+There are no currently known bugs.
+
+## Tech used
+
+* JavaScript
+* React
+* PropTypes Library
+* JSX
+* CSS
+
+## Support and contact details
+
+If you have any questions, run into any issues or bugs, or if you would like to contribute to this project, please contact Spencer Moody at spencer.moody@outlook.com.
+
+### License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+Copyright (c) 2020 Spencer Moody
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
