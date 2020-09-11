@@ -66,9 +66,11 @@ class TapControl extends React.Component {
 
   handleSellingPint = (id) => {
     const soldPint = this.state.tapList.filter(tap => tap.id === id)[0];
-    if (soldPint.stock > 0) {
-      soldPint.stock -= 1;
-      const editedMasterTapList = this.state.tapList.filter(tap => tap.id !== this.state.selectedTap.id).concat(soldPint);
+    if (soldPint.quantity > 0) {
+      soldPint.quantity -= 1;
+      const editedMasterTapList = this.state.tapList
+      .filter(tap => tap.id !== this.state.selectedTap.id)
+      .concat(soldPint);
       this.setState({
         masterTapList: editedMasterTapList
       });
@@ -84,7 +86,7 @@ class TapControl extends React.Component {
       buttonText = "Return to Tap List";
   } else if (this.state.selectedTap != null) {
     currentlyVisibleState = <TapDetail tap = {this.state.selectedTap} onClickingDelete = {this.handleDeletingTap}
-    onClickingEdit = {this.handleEditClick} />
+    onClickingEdit = {this.handleEditClick} onSoldPint = {this.handleSellingPint} />
     buttonText = "Return to Tap List";
   } else if (this.state.formVisibleOnPage) {
     currentlyVisibleState = <NewTapForm  onNewTapCreation={this.handleAddingNewTapToList} />;

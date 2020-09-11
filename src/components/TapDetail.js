@@ -10,7 +10,9 @@ function TapDetail(props) {
       <p>Brand: {tap.brand}</p>
       <p>Price: {tap.price}</p>
       <p>Alcohol Content: {tap.alcoholContent}</p>
+      <p>Stock: {tap.quantity}</p>
       <button onClick={props.onClickingEdit}>Update Tap</button>
+      <button onClick = {() => props.onSoldPint(tap)}>Sell Pint</button>
       <button onClick={() => onClickingDelete(tap.id)}>Delete Tap</button>
       <hr />
     </React.Fragment>
