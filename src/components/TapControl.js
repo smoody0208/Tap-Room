@@ -65,7 +65,9 @@ class TapControl extends React.Component {
   }
 
   handleSellingPint = (tapToEdit) => {
+    if(tapToEdit.quantity > 0) {
     tapToEdit.quantity --
+    }
     const editedMasterTapList = this.state.masterTapList
     .filter(tap => tap.id !== this.state.selectedTap.id)
     .concat(tapToEdit);
