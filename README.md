@@ -24,6 +24,15 @@ An app which allows the user to create, edit, delete and keep track of of their 
 
 * As a user, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0.
 
+## Setup
+
+* To clone this repo, copy the url provided by the 'clone or download' button in GitHub
+* In the command line use the command 'git clone (https://github.com/smoody0208/Tap-Room.git)'
+* Open the repo in a code editor
+* In the terminal enter the command "npm start" to run the program
+* Navigate to: localhost: 3000 to view project
+__
+
 ## Available Scripts
 
 In the project directory, you can run:
