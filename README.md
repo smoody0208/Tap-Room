@@ -31,7 +31,6 @@ An app which allows the user to create, edit, delete and keep track of of their 
 * Open the repo in a code editor
 * In the terminal enter the command "npm start" to run the program
 * Navigate to: localhost: 3000 to view project
-__
 
 ## Available Scripts
 
