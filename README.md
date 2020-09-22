@@ -29,7 +29,7 @@ An app which allows the user to create, edit, delete and keep track of of their 
 * To clone this repo, copy the url provided by the 'clone or download' button in GitHub
 * In the command line use the command 'git clone (https://github.com/smoody0208/Tap-Room.git)'
 * Open the repo in a code editor
-* In the terminal enter the command "npm start" to run the program
+* In the terminal enter the command `npm install` then `npm start` to run the program
 * Navigate to: localhost: 3000 to view project
 
 ## Available Scripts
