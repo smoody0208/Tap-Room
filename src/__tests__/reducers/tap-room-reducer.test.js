@@ -5,3 +5,7 @@ describe('tapRoomReducer', () => {
     expect(tapRoomReducer({}, { type: null })).toEqual({});
   });
 });
+
+export default (state = {}, action) => {
+
+};
