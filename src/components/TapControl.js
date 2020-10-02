@@ -4,6 +4,7 @@ import TapList from './TapList';
 import TapDetail from './TapDetail';
 import EditTapForm from './EditTapForm';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 class TapControl extends React.Component {
 
@@ -123,6 +124,16 @@ class TapControl extends React.Component {
   }
 }
 
-TapControl = connect()(TapControl);
+TapControl.propTypes = {
+  masterTapList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterTapList: state
+  }
+}
+
+TapControl = connect(mapStateToProps)(TapControl);
 
 export default TapControl;
