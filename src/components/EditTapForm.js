@@ -17,7 +17,7 @@ function EditTapForm (props) {
     }
     return(
         <React.Fragment>
-          <ReusableForm
+            <ReusableForm
             formSubmissionHandler={handleEditTapFormSubmission}
             buttonText="Update Tap" />
         </React.Fragment>
