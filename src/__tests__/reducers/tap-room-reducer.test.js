@@ -19,6 +19,9 @@ describe('tapRoomReducer', () => {
     }
   }
 
+  test('Should return default state if there is no action type passed into the reducer', () => {
+    expect(tapRoomReducer({}, { type: null })).toEqual({});
+  })
   let action;
   const tapData = {
     name: 'Rich and Rare Canadian Whiskey',
@@ -27,11 +30,6 @@ describe('tapRoomReducer', () => {
     alcoholContent: '80 proof',
     id: 1
   };
-
-  test('Should return default state if there is no action type passed into the reducer', () => {
-    expect(tapRoomReducer({}, { type: null })).toEqual({});
-  })
-
 
     test('Should successfully add new ticket data to masterTapList', () => {
       const { name, brand, price, alcoholContent, id } = tapData;
@@ -57,15 +55,17 @@ describe('tapRoomReducer', () => {
 
       test('Should successfully delete a tap', () => {
       action = {
-        type: 'DELETE_TICKET',
+        type: 'DELETE_TAP',
         id: 1
     };
-    expect(tapListReducer(currentState, action)).toEqual({
-      2: { name: 'Hangar 1 Vodka',
+    expect(tapRoomReducer(currentState, action)).toEqual({
+      2: { 
+      name: 'Hangar 1 Vodka',
       brand: 'Straight Vodka ',
       price: '$30',
       alcoholContent: '80 proof',
-      id: 2}
+      id: 2
+    }
     });
   });
 
