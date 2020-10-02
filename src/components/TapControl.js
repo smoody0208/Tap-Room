@@ -21,7 +21,7 @@ class TapControl extends React.Component {
     this.setState({selectedTap: selectedTap});
   }
 
-    handleAddingNewTapToList = (newTap) => {
+  handleAddingNewTapToList = (newTap) => {
     const { dispatch } = this.props;
     const { id, name, brand, price, alcoholContent } = newTap;
     const action = {
@@ -37,11 +37,13 @@ class TapControl extends React.Component {
   }
 
   handleDeletingTap = (id) => {
-    const newMasterTapList = this.state.masterTapList.filter(tap => tap.id !== id);
-    this.setState({
-      masterTapList: newMasterTapList,
-      selectedTap: null
-    });
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_TAP',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedTap: null});
   }
   
   handleClick = () => {
@@ -64,14 +66,21 @@ class TapControl extends React.Component {
   }
 
   handleEditingTapInList = (tapToEdit) => {
-    const editedMasterTapList = this.state.masterTapList
-      .filter(tap => tap.id !== this.state.selectedTap.id)
-      .concat(tapToEdit);
+    const { dispatch } = this.props;
+    const { id, name, brand, price, alcoholContent } = tapToEdit;
+    const action = {
+      type: 'ADD_TAP',
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      masterTapList: editedMasterTapList,
-        editing: false,
-        selectedTap: null
-      });
+      editing: false,
+      selectedTicket: null
+    });
   }
 
   handleSellingPint = (tapToEdit) => {
