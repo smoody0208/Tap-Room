@@ -6,7 +6,7 @@ function TapList(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.tapList.map((tap) =>
+      {Object.values(props.tapList).map((tap) =>
         <Tap
         whenTapClicked = {props.onTapSelection}
         brand={tap.brand}
@@ -22,7 +22,7 @@ function TapList(props){
 }
 
 TapList.propTypes = {
-  tapList: PropTypes.array,
+  tapList: PropTypes.object,
   onTapSelection: PropTypes.func
 };
 

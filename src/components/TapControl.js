@@ -112,7 +112,7 @@ class TapControl extends React.Component {
     currentlyVisibleState = <NewTapForm  onNewTapCreation={this.handleAddingNewTapToList} />;
     buttonText = "Return to Tap List";
   } else {
-    currentlyVisibleState = <TapList tapList={this.state.masterTapList} onTapSelection={this.handleChangingSelectedTap} />
+    currentlyVisibleState = <TapList tapList={this.props.masterTapList} onTapSelection={this.handleChangingSelectedTap} />
     buttonText = "Add Tap";
   }
     return(
