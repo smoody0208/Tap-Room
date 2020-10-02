@@ -3,6 +3,7 @@ import NewTapForm from './NewTapForm';
 import TapList from './TapList';
 import TapDetail from './TapDetail';
 import EditTapForm from './EditTapForm';
+import { connect } from 'react-redux';
 
 class TapControl extends React.Component {
 
@@ -10,7 +11,6 @@ class TapControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterTapList: [],
       selectedTap: null,
       editing: false
     };
@@ -20,10 +20,20 @@ class TapControl extends React.Component {
     const selectedTap = this.state.masterTapList.filter(tap => tap.id === id)[0];
     this.setState({selectedTap: selectedTap});
   }
-    
-  handleAddingNewTapToList = (newTap) => {
-    const newMasterTapList = this.state.masterTapList.concat(newTap);
-    this.setState({masterTapList: newMasterTapList, formVisibleOnPage: false });
+
+    handleAddingNewTapToList = (newTap) => {
+    const { dispatch } = this.props;
+    const { id, name, brand, price, alcoholContent } = newTap;
+    const action = {
+      type: 'ADD_TAP',
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      id: id
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage: false});
   }
 
   handleDeletingTap = (id) => {
@@ -103,5 +113,7 @@ class TapControl extends React.Component {
     );
   }
 }
+
+TapControl = connect()(TapControl);
 
 export default TapControl;
