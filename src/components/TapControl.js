@@ -11,7 +11,7 @@ class TapControl extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      formVisibleOnPage: false,
+      // formVisibleOnPage: false,
       selectedTap: null,
       editing: false
     };
@@ -34,7 +34,10 @@ class TapControl extends React.Component {
       id: id
     }
     dispatch(action);
-    this.setState({formVisibleOnPage: false});
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   }
 
   handleDeletingTap = (id) => {
@@ -50,14 +53,15 @@ class TapControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedTap != null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedTap: null,
         editing: false 
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      dispatch(action);
     }
   }
 
@@ -108,7 +112,7 @@ class TapControl extends React.Component {
     currentlyVisibleState = <TapDetail tap = {this.state.selectedTap} onClickingDelete = {this.handleDeletingTap}
     onClickingEdit = {this.handleEditClick} onClickingSold = {this.handleSellingPint} />
     buttonText = "Return to Tap List";
-  } else if (this.state.formVisibleOnPage) {
+  } else if (this.props.formVisibleOnPage) {
     currentlyVisibleState = <NewTapForm  onNewTapCreation={this.handleAddingNewTapToList} />;
     buttonText = "Return to Tap List";
   } else {
@@ -125,12 +129,14 @@ class TapControl extends React.Component {
 }
 
 TapControl.propTypes = {
-  masterTapList: PropTypes.object
+  masterTapList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
 };
 
 const mapStateToProps = state => {
   return {
-    masterTapList: state
+    masterTapList: state.masterTapList,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 
