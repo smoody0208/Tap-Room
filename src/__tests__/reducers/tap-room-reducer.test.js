@@ -2,6 +2,23 @@ import tapRoomReducer from '../../reducers/tap-room-reducer';
 
 describe('tapRoomReducer', () => {
 
+  const currentState = {
+    1: {
+      name: 'RICH and RARE',
+      brand: 'Blended Canadian Whisky',
+      price: '$20',
+      alcoholContent: '80 proof',
+      id: 1
+    },
+    2: {
+      name: 'Hangar 1 Vodka',
+      brand: 'Straight Vodka ',
+      price: '$30',
+      alcoholContent: '80 proof',
+      id: 2
+    }
+  }
+
   let action;
   const tapData = {
     name: 'Rich and Rare Canadian Whiskey',
@@ -36,6 +53,20 @@ describe('tapRoomReducer', () => {
           id: id
         }
       });
+    });    
+
+      test('Should successfully delete a tap', () => {
+      action = {
+        type: 'DELETE_TICKET',
+        id: 1
+    };
+    expect(tapListReducer(currentState, action)).toEqual({
+      2: { name: 'Hangar 1 Vodka',
+      brand: 'Straight Vodka ',
+      price: '$30',
+      alcoholContent: '80 proof',
+      id: 2}
     });
-  
-  });  
+  });
+
+});
