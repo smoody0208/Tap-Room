@@ -5,6 +5,7 @@ import TapDetail from './TapDetail';
 import EditTapForm from './EditTapForm';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import * as a from './../actions';
 
 class TapControl extends React.Component {
 
@@ -22,30 +23,9 @@ class TapControl extends React.Component {
     this.setState({selectedTap: selectedTap});
   }
 
-  handleAddingNewTapToList = (newTap) => {
-    const { dispatch } = this.props;
-    const { id, name, brand, price, alcoholContent } = newTap;
-    const action = {
-      type: 'ADD_TAP',
-      name: name,
-      brand: brand,
-      price: price,
-      alcoholContent: alcoholContent,
-      id: id
-    }
-    dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
-    dispatch(action2);
-  }
-
   handleDeletingTap = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: 'DELETE_TAP',
-      id: id
-    }
+    const action = a.deleteTap(id);
     dispatch(action);
     this.setState({selectedTap: null});
   }
@@ -54,13 +34,11 @@ class TapControl extends React.Component {
     if (this.state.selectedTap != null) {
       this.setState({
         selectedTap: null,
-        editing: false 
+        editing: false
       });
     } else {
       const { dispatch } = this.props;
-      const action = {
-        type: 'TOGGLE_FORM'
-      }
+      const action = a.toggleForm();
       dispatch(action);
     }
   }
@@ -70,21 +48,21 @@ class TapControl extends React.Component {
     this.setState({editing: true});
   }
 
+  handleAddingNewTapToList = (newTap) => {
+    const { dispatch } = this.props;
+    const action = a.addTap(newTap);
+    dispatch(action);
+    const action2 = a.toggleForm();
+    dispatch(action2);
+  }
+
   handleEditingTapInList = (tapToEdit) => {
     const { dispatch } = this.props;
-    const { id, name, brand, price, alcoholContent } = tapToEdit;
-    const action = {
-      type: 'ADD_TAP',
-      name: name,
-      brand: brand,
-      price: price,
-      alcoholContent: alcoholContent,
-      id: id
-    }
+    const action = a.addTap(tapToEdit);
     dispatch(action);
     this.setState({
       editing: false,
-      selectedTicket: null
+      selectedTap: null
     });
   }
 
