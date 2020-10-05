@@ -1,4 +1,5 @@
 import tapRoomReducer from '../../reducers/tap-room-reducer';
+import * as c from './../../actions/ActionTypes';
 
 describe('tapRoomReducer', () => {
 
@@ -34,7 +35,7 @@ describe('tapRoomReducer', () => {
     test('Should successfully add new ticket data to masterTapList', () => {
       const { name, brand, price, alcoholContent, id } = tapData;
       action = {
-        type: 'ADD_TAP',
+        type: c.ADD_TAP,
         name: name,
         brand: brand,
         price: price,
@@ -55,7 +56,7 @@ describe('tapRoomReducer', () => {
 
       test('Should successfully delete a tap', () => {
       action = {
-        type: 'DELETE_TAP',
+        type: c.DELETE_TAP,
         id: 1
     };
     expect(tapRoomReducer(currentState, action)).toEqual({
